@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+
+<!-- Definicion de datos -->
+
+<xs:simpleType name="numeroCalle">
+    <xs:restriction base="xs:int">
+        <xs:maxExclusive value="500"/>
+    </xs:restriction>
+</xs:simpleType>
+
+
+<xs:simpleType name="provinciaEnum">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="Badajoz"/>
+        <xs:enumeration value="Caceres"/>
+    </xs:restriction>
+</xs:simpleType>
+<!-- Elementos simples -->
+
+
+<!-- DEFINICION DE ATRIBUTOS-->
+<xs:attribute name="dni" type="xs:string"/>
+
+<!-- Elementos complejos -->
+<xs:element name="direccion">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="calle" type="xs:string"/>
+            <xs:element name="numero" type="numeroCalle"/>
+            <xs:element name="ciudad" type="xs:string"/>
+            <xs:element name="provincia" type="provinciaEnum" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+
+<xs:element name="alumno">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element ref="direccion" maxOccurs="2"/>
+            <xs:element name=" telefono" type="xs:int" maxOccurs="5"/>
+        </xs:sequence>
+        <xs:attribute ref="dni"/>
+    </xs:complexType>
+</xs:element>
+
+<!-- Elemento raiz -->
+<xs:element name="alumnos">
+    <xs:complexType>
+    <xs:sequence>
+        <xs:element name="alumno" maxOccurs="unbounded"/>
+    </xs:sequence>        
+    </xs:complexType>
+</xs:element>
+
+</xs:schema>

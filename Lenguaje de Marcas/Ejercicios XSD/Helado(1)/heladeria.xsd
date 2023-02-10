@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- DEFINICION DE DATOS-->
+    <xs:simpleType name="gramaje">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="1000" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <!-- ELEMENTOS SIMPLES-->
+    <xs:element name="chocolate" type="gramaje" />
+    <xs:element name="fresa" type="gramaje" />
+    <xs:element name="vainilla" type="gramaje" />
+    <xs:element name="turron" type="gramaje" />
+    <xs:element name="nata" type="gramaje" />
+    <!-- ELEMENTOS COMPLEJOS-->
+
+
+    <xs:element name="helado">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice>
+                    <xs:element ref="chocolate" />
+                    <xs:element ref="fresa" />
+                </xs:choice>
+                <xs:choice>
+                    <xs:element ref="vainilla" />
+                    <xs:element ref="turron" />
+                    <xs:element ref="nata" />
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="fabricación" type="xs:date" />
+        </xs:complexType>
+    </xs:element>
+    <!-- DEFINICION DE ATRIBUTOS-->
+
+    <xs:attribute name="fabricacion" type="xs:date" />
+
+
+    <!-- ELEMENTO RAIZ-->
+    <xs:element name="heladeria">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="helado" maxOccurs="unbounded"></xs:element>
+            </xs:sequence>
+
+        </xs:complexType>
+
+    </xs:element>
+
+</xs:schema>
+
+
+<!-- 
+
+Como primer elemento de helado podemos elegir, o bien chocolate,
+ o bien fresa (pero no los dos al mismo tiempo).
+Estos elementos almacenarán la cantidad en gramos (como un
+número entero entre 0 y 1000).
+
+• Como segundo elemento de helado se podrá elegir uno de los
+siguientes vainilla, turrón o nata. Estos elementos almacenarán
+la cantidad en gramos (como un número entero entre 0 y 1000).
+
+• El atributo fabricación indicará la fecha en la que se fabricó el
+mismo mediante el tipo de dato fecha.
+
+-->

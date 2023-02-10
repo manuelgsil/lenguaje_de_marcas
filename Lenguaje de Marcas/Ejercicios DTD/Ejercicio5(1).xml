@@ -1,0 +1,47 @@
+<!DOCTYPE liga1 [
+    <!ELEMENT liga1 (partido)+>
+    <!ELEMENT partido (equipo)+>
+    <!ELEMENT equipo (nombre,local?,visitante?,goles*)>
+    <!ELEMENT goles (#PCDATA)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT local EMPTY>
+    <!ELEMENT visitante EMPTY>
+]>
+<liga1>
+    <partido>
+        <equipo>
+            <nombre>Nothingham Presa</nombre>
+            <local />
+            <goles>0</goles>
+        </equipo>
+        <equipo>
+            <nombre>Intert de Mitente</nombre>
+            <visitante />
+            <goles>1</goles>
+        </equipo>
+    </partido>
+    <partido>
+        <equipo>
+            <nombre>Voda Juniors</nombre>
+            <local />
+            <goles>3</goles>
+        </equipo>
+        <equipo>
+            <nombre>Sparta de Risa</nombre>
+            <visitante />
+            <goles>3</goles>
+        </equipo>
+    </partido>
+    <partido>
+        <equipo>
+            <nombre>Water de Munich</nombre>
+            <local />
+            <goles>4</goles>
+        </equipo>
+        <equipo>
+            <nombre>Esteaua es del grifo</nombre>
+            <visitante />
+            <goles>2</goles>
+        </equipo>
+    </partido>
+</liga1>

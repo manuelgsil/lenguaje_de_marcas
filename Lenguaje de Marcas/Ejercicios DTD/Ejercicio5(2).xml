@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE liga2 [
+    <!ELEMENT liga2 (partido)+>
+    <!ELEMENT partido (equipo)+>
+    <!ELEMENT equipo (nombre,local?,visitante?)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT local EMPTY>
+    <!ATTLIST nombre goles NMTOKEN #REQUIRED>
+    <!ELEMENT visitante EMPTY>
+]>
+<liga2>
+    <partido>
+        <equipo>
+            <nombre goles="0">Nothingham Presa</nombre>
+            <local />
+        </equipo>
+        <equipo>
+            <nombre goles="1">Intert de Mitente</nombre>
+            <visitante />
+        </equipo>
+    </partido>
+    <partido>
+        <equipo>
+            <nombre goles="3">Voda Juniors</nombre>
+            <local />
+        </equipo>
+        <equipo>
+            <nombre goles="3">Sparta de Risa</nombre>
+            <visitante />
+        </equipo>
+    </partido>
+    <partido>
+        <equipo>
+            <nombre goles="4">Water de Munich</nombre>
+            <local />
+          
+        </equipo>
+        <equipo>
+            <nombre goles="2">Esteaua es del grifo</nombre>
+            <visitante />
+        </equipo>
+    </partido>
+</liga2>

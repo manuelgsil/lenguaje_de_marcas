@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+    <!-- DEFINICION ELEMENTOS SIMPLES -->
+    <xs:element name="telefono">
+        <xs:simpleType>
+            <xs:restriction base="xs:int"> <!--  TAMBIEN HEMOS DEFINIDO EL DATO-->
+                <xs:pattern value="[0-9]{9}"></xs:pattern>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="direccion" type="xs:string" />
+
+    <xs:element name="codigo">
+        <xs:simpleType>
+            <xs:restriction base="xs:int">
+                <xs:minInclusive value="1000" />
+                <xs:maxInclusive value="9999" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:element name="nombre" type="xs:string" />
+
+    <xs:element name="titulo" type="xs:string" />
+    <xs:element name="autor" type="xs:string" />
+
+    <xs:element name="publicacion" type="xs:string" />
+    <xs:element name="formato" type="xs:string" />
+    <xs:element name="precio" type="xs:double" />
+    <xs:element name="cantidad" type="xs:int" />
+
+    <!--  DEFINICION DATOS-->
+    <xs:simpleType name="opcionesFormato">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="rustica" />
+            <xs:enumeration value="tapa dura" />
+            <xs:enumeration value="tapa blanda" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <!--  DEFINICION ELEMENTOS COMPLEJOS-->
+    <xs:element name="propietario">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre" />
+                <xs:element ref="telefono" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="libro">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="titulo" />
+                <xs:element ref="autor" />
+                <xs:element ref="formato" minOccurs="0" />
+                <xs:element ref="publicacion" minOccurs="0" />
+                <xs:element ref="precio" minOccurs="0" />
+                <xs:element ref="cantidad" minOccurs="0" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--  DEFINICION ATRIBUTOS-->
+
+
+    <!--  DEFINICION DEFINICION ELEMENTO RAIZ-->
+
+    <xs:element name="libreria">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="codigo" />
+                <xs:element ref="direccion" />
+                <xs:element ref="telefono" />
+                <xs:element ref="propietario" />
+                <xs:element ref="libro" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
+
+<!-- 
+La librería tiene obligatoriamente un código, una dirección,
+un teléfono, un propietario, y uno o más libros.
+
+• El código será un número entero entre 1000 y 9999.
+
+• El propietario tiene un nombre y puede tener ninguno o
+varios teléfonos.
+
+• El teléfono sólo se definirá una vez en el esquema, repitiendo su
+uso. Su contenido será una plantilla de 9 números.
+
+• Cada libro está formado por los elementos título, autor, puede
+tener o no formato, publicación, precio, cantidad.
+
+• El formato podrá ser rústica, tapa blanda o tapa dura
+
+-->

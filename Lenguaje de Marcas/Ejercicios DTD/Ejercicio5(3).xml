@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE liga3 SYSTEM "DTT.xml" >
+ 
+<liga3>
+    <partido>
+        <equipo nombreEquipo="Nothingham Presa" procedencia="local" goles="0"/>
+        <equipo nombreEquipo="Inter de Mitente" procedencia="visitante" goles="1"/>
+    </partido>
+    <partido>
+        <equipo nombreEquipo="Vodka Juniors" procedencia="local" goles="3"/> 
+        <equipo nombreEquipo="Sparta de Risa" procedencia="visitante" goles="3"/>
+    </partido>
+    <partido>
+        <equipo nombreEquipo="Water de Munich" procedencia="local" goles="4"/>
+        <equipo nombreEquipo ="Esteaua es del grifo" procedencia="visitante" goles="2"/>
+    </partido>
+</liga3>

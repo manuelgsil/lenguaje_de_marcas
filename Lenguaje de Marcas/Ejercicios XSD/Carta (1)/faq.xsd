@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+    <!-- DEFINICION ELEMENTOS SIMPLES -->
+    <xs:element name="titulo" type="xs:string" />
+    <xs:element name="autor" type="xs:string" />
+    <xs:element name="email" type="xs:string" />
+    <xs:element name="version" type="plantillaNumeros" />
+    <xs:element name="fecha" type="xs:date" />
+
+
+    <!--  DEFINICION DATOS-->
+    <xs:simpleType name="plantillaNumeros">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]\.[0-9]"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <!--  DEFINICION ELEMENTOS COMPLEJOS-->
+    <xs:element name="info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="titulo" />
+                <xs:element ref="autor" />
+                <xs:element ref="email" minOccurs="0" />
+                <xs:element ref="version" minOccurs="0" />
+                <xs:element ref="fecha" minOccurs="0" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="part">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="q" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="qtext" minOccurs="1" type="xs:string"></xs:element>
+                        <xs:element name="a" minOccurs="1" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+                
+        </xs:sequence>
+    </xs:complexType>
+    </xs:element>
+
+    <!--  DEFINICION ATRIBUTOS-->
+
+
+    <!--  DEFINICION DEFINICION ELEMENTO RAIZ-->
+    <xs:element name="faq">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="info" maxOccurs="1"></xs:element>
+                <xs:element ref="part" maxOccurs="unbounded"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
+
+<!-- 
+El elemento versión será una plantilla que permita números
+seguidos de un punto y seguido de más números.
+
+• El elemento fecha será de tipo fecha.
+
+• El elemento faq está compuesto por solo un elemento info y por
+uno o más elementos part.
+
+• El elemento info está compuesto por un titulo, un autor, y puede
+tener o no email, versión y fecha.
+
+• El elemento part puede tener uno o más elementos q.
+
+• El elemento q está compuesto por los elementos qtext y a que
+son obligatorios.
+
+-->

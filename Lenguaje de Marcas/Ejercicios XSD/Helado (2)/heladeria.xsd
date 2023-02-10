@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+
+    <!-- ELEMENTOS COMPLEJOS-->
+    <xs:element name="chocolate">
+        <xs:complexType />
+    </xs:element>
+    <xs:element name="fresa">
+        <xs:complexType />
+    </xs:element>
+    <xs:element name="vainilla">
+        <xs:complexType />
+    </xs:element>
+
+    <xs:element name="helado">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice>
+                    <xs:element ref="vainilla" />
+                    <xs:element ref="fresa" />
+                </xs:choice>
+                <xs:element ref="chocolate" />
+            </xs:sequence>
+
+        </xs:complexType>
+    </xs:element>
+    <!-- DEFINICION DE ATRIBUTOS-->
+
+
+    <!-- ELEMENTO RAIZ-->
+    <xs:element name="heladeria">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="helado" maxOccurs="unbounded"></xs:element>
+            </xs:sequence>
+
+        </xs:complexType>
+
+    </xs:element>
+
+</xs:schema>
