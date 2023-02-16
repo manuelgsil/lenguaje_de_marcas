@@ -12,8 +12,8 @@
 
     <!--  DEFINICION DATOS-->
     <xs:simpleType name="plantillaNumeros">
-        <xs:restriction base="xs:int">
-            <xs:pattern value="[0-9]\.[0-9]"></xs:pattern>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]*\.[0-9]*"></xs:pattern>
         </xs:restriction>
     </xs:simpleType>
 
